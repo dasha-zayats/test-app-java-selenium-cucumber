@@ -1,4 +1,4 @@
-package stepDefinitions;
+package ui.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -6,14 +6,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pages.AddNewUserPage;
-import pages.CommonPage;
-import pages.LandingPage;
-import pages.UpdateUserPage;
-import utils.context.UpdateUserContext;
-import utils.context.AddNewUserContext;
-import utils.WebDriverSingleton;
-import utils.helpers.Waiters;
+import ui.pages.AddNewUserPage;
+import ui.pages.CommonPage;
+import ui.pages.LandingPage;
+import ui.pages.UpdateUserPage;
+import ui.utils.context.UpdateUserContext;
+import ui.utils.context.AddNewUserContext;
+import ui.utils.WebDriverSingleton;
+import ui.utils.helpers.Waiters;
 import java.util.List;
 
 

@@ -1,4 +1,4 @@
-package stepDefinitions;
+package ui.stepDefinitions;
 
 import io.cucumber.java.AfterAll;
 import org.openqa.selenium.WebDriver;
@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebElement;
-import pages.LandingPage;
-import utils.WebDriverSingleton;
-import utils.helpers.Waiters;
+import ui.pages.LandingPage;
+import ui.utils.WebDriverSingleton;
+import ui.utils.helpers.Waiters;
 import java.util.List;
 
 public class BaseSteps {

@@ -1,17 +1,17 @@
-package stepDefinitions;
+package ui.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.AddNewUserPage;
-import pages.CommonPage;
-import pages.LandingPage;
-import utils.context.AddNewUserContext;
-import utils.WebDriverSingleton;
-import utils.helpers.UserData;
-import utils.helpers.Waiters;
+import ui.pages.AddNewUserPage;
+import ui.pages.CommonPage;
+import ui.pages.LandingPage;
+import ui.utils.context.AddNewUserContext;
+import ui.utils.WebDriverSingleton;
+import ui.utils.helpers.UserData;
+import ui.utils.helpers.Waiters;
 
 public class AddNewUser {
 

@@ -1,6 +1,6 @@
-package utils.context;
+package ui.utils.context;
 
-public class AddNewUserContext {
+public class UpdateUserContext {
     private static String userName;
     private static String userSurname;
     private static String userEmail;
@@ -11,7 +11,7 @@ public class AddNewUserContext {
     }
 
     public static void setUserName(String userName) {
-        AddNewUserContext.userName = userName;
+        UpdateUserContext.userName = userName;
     }
 
     public static String getUserSurname() {
@@ -19,7 +19,7 @@ public class AddNewUserContext {
     }
 
     public static void setUserSurname(String userSurname) {
-        AddNewUserContext.userSurname = userSurname;
+        UpdateUserContext.userSurname = userSurname;
     }
 
     public static String getUserEmail() {
@@ -27,7 +27,7 @@ public class AddNewUserContext {
     }
 
     public static void setUserEmail(String userEmail) {
-        AddNewUserContext.userEmail = userEmail;
+        UpdateUserContext.userEmail = userEmail;
     }
 
     public static String getUserPosition() {
@@ -35,7 +35,6 @@ public class AddNewUserContext {
     }
 
     public static void setUserPosition(String userPosition) {
-        AddNewUserContext.userPosition = userPosition;
+        UpdateUserContext.userPosition = userPosition;
     }
-
 }

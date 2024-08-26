@@ -1,4 +1,4 @@
-package utils.helpers;
+package ui.utils.helpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

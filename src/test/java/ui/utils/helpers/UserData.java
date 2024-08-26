@@ -1,4 +1,4 @@
-package utils.helpers;
+package ui.utils.helpers;
 
 public class UserData {
 
