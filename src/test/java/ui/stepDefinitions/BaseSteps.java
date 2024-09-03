@@ -1,19 +1,21 @@
 package ui.stepDefinitions;
 
 import io.cucumber.java.AfterAll;
-import org.openqa.selenium.WebDriver;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ui.pages.LandingPage;
+import config.ConfigReader;
 import ui.utils.WebDriverSingleton;
-import ui.utils.helpers.Waiters;
+import ui.utils.Waiters;
 import java.util.List;
 
 public class BaseSteps {
 
     private static WebDriver driver;
+    static String environment = System.getProperty("env");
+    static ConfigReader config = new ConfigReader(environment);
 
     @Before
     public void setUp() {
@@ -36,7 +38,7 @@ public class BaseSteps {
         LandingPage landingPage = new LandingPage(driver);
         Waiters waiters = new Waiters(driver);
 
-        driver.get(landingPage.getUrl());
+        driver.get(config.getProperty("frontend.url"));
         List<WebElement> rows = landingPage.getRowsUsersTable();
         if(!rows.isEmpty()) {
             for (int row = rows.size(); row >= 1; row--) {

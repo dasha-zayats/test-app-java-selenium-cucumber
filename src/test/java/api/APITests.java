@@ -2,8 +2,8 @@ package api;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+import config.ConfigReader;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -11,14 +11,15 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class APITests {
 
-    private WebDriver driver;
+    static String environment = System.getProperty("env");
+    static ConfigReader config = new ConfigReader(environment);
     private int idNewUser;
-    private final String baseURI = "http://localhost:8080";
+    private final String baseURL = config.getProperty("backend.url");
 
     @Test(priority = 1)
     public void getAllUsers() {
         Response response = given()
-                .baseUri(baseURI)
+                .baseUri(baseURL)
                 .when()
                 .get("/users")
                 .then()
@@ -31,7 +32,7 @@ public class APITests {
     @Test(priority = 2)
     public void crateNewUser() {
         Response response = given()
-                .baseUri(baseURI)
+                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
                 .body("{\"name\": \"darya\",\"surname\": \"zayats\",\"email\": \"darya.zayats@test.com\",\"position\": \"Test Engineer\"}")
                         .when()
@@ -49,7 +50,7 @@ public class APITests {
     @Test(priority = 3)
     public void getUserById() {
         Response response = given()
-                .baseUri(baseURI)
+                .baseUri(baseURL)
                 .pathParam("userId", idNewUser)
                 .when()
                 .get("/users/{userId}")
@@ -68,7 +69,7 @@ public class APITests {
     @Test(priority = 4)
     public void updateUser() {
         Response response = given()
-                .baseUri(baseURI)
+                .baseUri(baseURL)
                 .pathParam("userId", idNewUser)
                 .contentType(ContentType.JSON)
                 .body("{\"name\": \"Alex\",\"surname\": \"Zayats\",\"email\": \"alex.zayats@test.com\",\"position\": \"Lead Developer\"}")
@@ -85,7 +86,7 @@ public class APITests {
     @Test(priority = 5)
     public void getUpdatedUserById() {
         Response response = given()
-                .baseUri(baseURI)
+                .baseUri(baseURL)
                 .pathParam("userId", idNewUser)
                 .when()
                 .get("/users/{userId}")
@@ -104,7 +105,7 @@ public class APITests {
     @Test(priority = 6)
     public void deleteUser() {
         Response response = given()
-                .baseUri(baseURI)
+                .baseUri(baseURL)
                 .pathParam("userId", idNewUser)
                 .when()
                 .delete("/users/{userId}")

@@ -1,10 +1,10 @@
-package ui.utils.helpers;
+package ui.utils.testDataGenerator;
 
 import net.datafaker.Faker;
 
 import java.util.Random;
 
-public class TestDataGenerator {
+public class UserDataGenerator {
 
     private final Faker faker;
     private final Random random;
@@ -21,7 +21,7 @@ public class TestDataGenerator {
             "Business Analyst"
     };
 
-    public TestDataGenerator() {
+    public UserDataGenerator() {
         this.faker = new Faker();
         this.random = new Random();
     }

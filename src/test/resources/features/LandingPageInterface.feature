@@ -12,6 +12,9 @@ Feature: Check interface of the main page
     And the copyright statement is displayed on the "main" page
 
   Scenario: Navigation to the "Add new user" page
-    Then the "Add new users" button is present and active on the "main" page
     When the user clicks the "Add new user" button on the "main" page
     Then the "add new user" page is opened
+
+  Scenario: Check if the "Test Application" link works on the main page
+    When the user clicks the "Test Application" link
+    Then the "main" page is opened

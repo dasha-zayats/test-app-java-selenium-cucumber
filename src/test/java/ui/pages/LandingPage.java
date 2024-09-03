@@ -3,18 +3,32 @@ package ui.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import config.ConfigReader;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class LandingPage extends BasePage {
 
-    private final String url = "http://localhost:8081";
-    private final By txtListOfUsers = By.tagName("h2");
-    private final By btnAddNewUser = By.cssSelector("a[href='add-user.html']");
-    private final By headerUsersTable = By.cssSelector("table#users-table > thead");
-    private final By tableUsers = By.cssSelector("#users-table");
-    private final By rowsUsersTable = By.cssSelector("#users-table-body > tr");
-    private final By cellsUsersTable = By.cssSelector("#users-table-body > tr > td");
+    static String environment = System.getProperty("env");
+    static ConfigReader config = new ConfigReader(environment);
+
+    private final String url = config.getProperty("frontend.url");
+
+    @FindBy (tagName = "h2")
+    private WebElement txtListOfUsers;
+
+    @FindBy (css = "a[href='add-user.html']")
+    private WebElement btnAddNewUser;
+
+    @FindBy (css = "table#users-table > thead")
+    private WebElement headerUsersTable;
+
+    @FindBy (id = "users-table")
+    private WebElement tableUsers;
+
+    @FindBy (css = "#users-table-body > tr")
+    private List<WebElement> rowsUsersTable;
 
     public LandingPage(WebDriver driver) {
         super(driver);
@@ -25,23 +39,23 @@ public class LandingPage extends BasePage {
     }
 
     public WebElement getTxtListOfUsers() {
-        return driver.findElement(txtListOfUsers);
+        return txtListOfUsers;
     }
 
     public WebElement getBtnAddNewUser() {
-        return driver.findElement(btnAddNewUser);
+        return btnAddNewUser;
     }
 
     public WebElement getHeaderUsersTable() {
-        return driver.findElement(headerUsersTable);
+        return headerUsersTable;
     }
 
     public WebElement getTableUsers() {
-        return driver.findElement(tableUsers);
+        return tableUsers;
     }
 
     public List<WebElement> getRowsUsersTable() {
-        return (this.getTableUsers()).findElements(rowsUsersTable);
+        return rowsUsersTable;
     }
 
     public List<WebElement> getCellsUsersTable(Number row) {

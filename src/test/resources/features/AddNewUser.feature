@@ -1,5 +1,4 @@
- Feature: Add new user
-   Check if the page and its features work correctly
+ Feature: Add new user page and its features work correctly
 
    Background: The "Add new user" page is opened
      Given the user is on the main page
@@ -17,8 +16,6 @@
      And the copyright statement is displayed on the "add new user" page
 
    Scenario Outline: Add new user - <fieldName> details missed
-     Then the input fields are displayed on the "add new user" page
-     And the "Create user" button is present and active on the "add new user" page
      When the user fills in the user data missing <fieldName>
      And the user clicks the "Create user" button on the "add new user" page
      Then the "Fill in all the details" error appears on the "add new user" page
@@ -28,14 +25,11 @@
        | Email     |
 
    Scenario: Add new user
-     Then the input fields are displayed on the "add new user" page
-     And the "Create user" button is present and active on the "add new user" page
      When the user fills in the user data
      And the user clicks the "Create user" button on the "add new user" page
      Then the "main" page is opened
      And the user for the "Add new user" scenario is in the "Users" table
 
    Scenario: Navigate from the "Add new user" page to the main page
-     Then the "Test Application" link is displayed on the "add new user" page
      When the user clicks the "Test Application" link
      Then the "main" page is opened

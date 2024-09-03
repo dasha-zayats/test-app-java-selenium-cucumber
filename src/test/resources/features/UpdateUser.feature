@@ -1,5 +1,4 @@
-Feature: Update user
-  Check if the page and its features work correctly
+Feature: Update user page and its features work correctly
 
   Background: Main page is opened
     Given the user is on the main page
@@ -8,7 +7,7 @@ Feature: Update user
   Scenario: Update user - page
     When the user clicks the "update user" button against the new user created
     Then the "update user" page is opened
-    Then the title is displayed on the "update user" page
+    And the title is displayed on the "update user" page
     And the "Test Application" link is displayed on the "update user" page
     And the "Add new user" text is displayed on the "update user" page
     And the "Name" text field is displayed on the "update user" page
@@ -22,8 +21,6 @@ Feature: Update user
   Scenario Outline: Update user <fieldName> details
     When the user clicks the "update user" button against the new user created
     Then the "update user" page is opened
-    And the input fields are displayed on the "update user" page
-    And the "Update user" button is present and active on the "update user" page
     When the user changes "<fieldName>"
     And the user clicks the "Update user" button on the "update user" page
     Then the "main" page is opened
@@ -42,6 +39,5 @@ Feature: Update user
     Then the "main" page is opened
 
   Scenario: Navigate from the "Update user" page to the main page
-    Then the "Test Application" link is displayed on the "update user" page
     When the user clicks the "Test Application" link
     Then the "main" page is opened
